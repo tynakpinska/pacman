@@ -6,8 +6,8 @@ class Pacman extends Component {
   state = {
     direction: "right",
     position: {
-      top: 50,
-      left: 50,
+      top: 0,
+      left: 0,
     },
   };
   constructor(props) {
@@ -21,6 +21,37 @@ class Pacman extends Component {
 
   handleKeyDown = e => {
     console.log(e.keyCode, e.key);
+    const currentTop = this.state.position.top;
+    const currentLeft = this.state.position.left;
+
+    // 39 ArrowRight
+    // 40 ArrowDown
+    // 37 ArrowLeft
+    // 38 ArrowUp
+    switch (e.key) {
+      case "ArrowRight":
+        return this.setState({
+          position: { top: currentTop, left: currentLeft + this.props.step },
+          direction: "right",
+        });
+      case "ArrowDown":
+        return this.setState({
+          position: { top: currentTop + this.props.step, left: currentLeft },
+          direction: "down",
+        });
+      case "ArrowLeft":
+        return this.setState({
+          position: { top: currentTop, left: currentLeft - this.props.step },
+          direction: "left",
+        });
+      case "ArrowUp":
+        return this.setState({
+          position: { top: currentTop - this.props.step, left: currentLeft },
+          direction: "up",
+        });
+      default:
+        return;
+    }
   };
 
   render() {
