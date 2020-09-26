@@ -9,9 +9,9 @@ const Board = () => {
       {/* <Food /> */}
       <Pacman />
       <Ghost color="red" />
-      {/* <Ghost color="yellow" />
+      <Ghost color="yellow" />
       <Ghost color="blue" />
-      <Ghost color="pink" /> */}
+      <Ghost color="pink" />
     </div>
   );
 };
