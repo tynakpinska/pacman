@@ -20,7 +20,23 @@ class Board extends Component {
   }
 
   lookFor = () => {
-    
+    const pacmanX = this.pacmanRef.current.state.position.left;
+    const pacmanY = this.pacmanRef.current.state.position.top;
+    const pacmanSize = this.pacmanRef.current.props.size;
+    const pacmanLastX = pacmanX + pacmanSize / 2;
+    const pacmanLastY = pacmanY + pacmanSize / 2;
+
+    for(let i = 0; i <= this.amoundOfFood; i++) {
+        const currentFood = this['food' + i].current;
+        if (currentFood) {
+          const currentFoodX = currentFood.state.position.left;
+          const currentFoodY = currentFood.state.position.top;
+          const currentFoodSize = currentFood.props.size;
+          const currentFoodLastX = currentFoodX + currentFood / 2;
+          const currentFoodLastY = currentFoodY + currentFood / 2;
+        }
+        
+    }
   };
 
   render() {
