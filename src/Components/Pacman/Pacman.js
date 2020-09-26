@@ -23,30 +23,39 @@ class Pacman extends Component {
     console.log(e.keyCode, e.key);
     const currentTop = this.state.position.top;
     const currentLeft = this.state.position.left;
+    const { step, border, size, topScoreBoardHeight } = this.props;
 
-    // 39 ArrowRight
-    // 40 ArrowDown
-    // 37 ArrowLeft
-    // 38 ArrowUp
     switch (e.key) {
       case "ArrowRight":
         return this.setState({
-          position: { top: currentTop, left: currentLeft + this.props.step },
+          position: {
+            top: currentTop,
+            left: Math.min(
+              currentLeft + step,
+              window.innerWidth - border - size
+            ),
+          },
           direction: "right",
         });
       case "ArrowDown":
         return this.setState({
-          position: { top: currentTop + this.props.step, left: currentLeft },
+          position: {
+            top: Math.min(
+              currentTop + step,
+              window.innerHeight - border - size - topScoreBoardHeight
+            ),
+            left: currentLeft,
+          },
           direction: "down",
         });
       case "ArrowLeft":
         return this.setState({
-          position: { top: currentTop, left: currentLeft - this.props.step },
+          position: { top: currentTop, left: Math.max(currentLeft - step, 0) },
           direction: "left",
         });
       case "ArrowUp":
         return this.setState({
-          position: { top: currentTop - this.props.step, left: currentLeft },
+          position: { top:  Math.max(currentTop - step, 0), left: currentLeft },
           direction: "up",
         });
       default:

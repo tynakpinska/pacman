@@ -1,6 +1,5 @@
 .board {
     position: relative;
-    margin: auto;
     background-color: #34495e;
     border: 10px #c0392b solid;
     height: calc(100vh - 80px);
