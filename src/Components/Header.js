@@ -1,10 +1,11 @@
 import React from "react";
+import './style.css';
 
 const Header = ({ score }) => {
   return (
-    <div>
+    <header>
       <span>SCORE: {score} </span>
-    </div>
+    </header>
   );
 };
 
