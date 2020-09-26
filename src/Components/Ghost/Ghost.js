@@ -4,7 +4,7 @@ import "./Ghost.css";
 
 class Ghost extends Component {
   state = {
-    direction: 'left',
+    direction: "left",
     position: {
       top: 50 * 3,
       left: 50 * 3,
@@ -15,12 +15,10 @@ class Ghost extends Component {
     this.pacmanRef = React.createRef();
   }
   render() {
-    const { color, position } = this.state;
+    const { position } = this.state;
+    const { color } = this.props;
     return (
-      <div
-        className="ghost"
-        style={position}
-      >
+      <div className="ghost" style={position}>
         <GhostSvg className={`ghost-${color}`} />
       </div>
     );
@@ -28,7 +26,7 @@ class Ghost extends Component {
 }
 
 Ghost.defaultProps = {
-  color: "red",
+  color: "blue",
   step: 50, // 50px
   size: 50, // ghost size: 50px x 50 px
   // TODO: move to conifg
