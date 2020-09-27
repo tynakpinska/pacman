@@ -1,8 +1,20 @@
 header {
-    height: 50px;
-    background-color: #000;
-    color: #fff;
-    margin: auto;
-    line-height: 50px;
-    text-align: center;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  margin: auto;
+  line-height: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.hearts {
+  display: flex;
+}
+
+img {
+  width: 30px;
+  height: auto;
+  margin: 5px;
 }

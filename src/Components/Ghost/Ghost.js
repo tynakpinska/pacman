@@ -30,7 +30,7 @@ class Ghost extends Component {
   move = () => {
     const currentTop = this.state.position.top;
     const currentLeft = this.state.position.left;
-    const { step, border, size, topScoreBoardHeight } = this.props;
+    const { step, border, size } = this.props;
     const { direction } = this.state;
 
     switch (direction) {
@@ -40,7 +40,7 @@ class Ghost extends Component {
             top: currentTop,
             left: Math.min(
               currentLeft + step,
-              window.innerWidth - border - size
+              .7 * window.innerHeight - border - size
             ),
           },
         });
@@ -49,7 +49,7 @@ class Ghost extends Component {
           position: {
             top: Math.min(
               currentTop + step,
-              window.innerHeight - border - size - topScoreBoardHeight
+              .7 * window.innerHeight - border - size
             ),
             left: currentLeft,
           },

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Food.css';
+import "./Food.css";
 
 class Food extends Component {
   state = {
@@ -9,6 +9,11 @@ class Food extends Component {
     },
     hidden: false,
   };
+
+  ate() {
+    this.setState({hidden: true})
+  }
+
   render() {
     const { position, hidden } = this.state;
     return (

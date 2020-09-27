@@ -22,7 +22,7 @@ class Pacman extends Component {
   handleKeyDown = e => {
     const currentTop = this.state.position.top;
     const currentLeft = this.state.position.left;
-    const { step, border, size, topScoreBoardHeight } = this.props;
+    const { step, border, size } = this.props;
 
     switch (e.key) {
       case "ArrowRight":
@@ -31,7 +31,7 @@ class Pacman extends Component {
             top: currentTop,
             left: Math.min(
               currentLeft + step,
-              window.innerWidth - border - size
+              .7 * window.innerHeight - border - size
             ),
           },
           direction: "right",
@@ -41,7 +41,7 @@ class Pacman extends Component {
           position: {
             top: Math.min(
               currentTop + step,
-              window.innerHeight - border - size - topScoreBoardHeight
+              .7 * window.innerHeight - border - size
             ),
             left: currentLeft,
           },
@@ -82,8 +82,7 @@ Pacman.defaultProps = {
   step: 50, // 50px
   size: 50, // pacman size: 50px x 50 px
   // TODO: move to conifg
-  border: 10 * 2,
-  topScoreBoardHeight: 50,
+  border: 10 * 2
 };
 
 export default Pacman;
